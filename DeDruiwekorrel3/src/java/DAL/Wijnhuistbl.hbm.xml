@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-jan-2015 21:20:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DAL.Wijnhuistbl" table="wijnhuistbl" catalog="dedruiwekorrelnew" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="fototbl" class="DAL.Fototbl" fetch="select">
+            <column name="fotoId" not-null="true" />
+        </many-to-one>
+        <property name="naam" type="string">
+            <column name="naam" length="120" not-null="true" />
+        </property>
+        <property name="omschrijving" type="string">
+            <column name="omschrijving" length="65535" not-null="true" />
+        </property>
+        <property name="streek" type="string">
+            <column name="streek" length="120" not-null="true" />
+        </property>
+        <property name="eigenaar" type="string">
+            <column name="eigenaar" length="120" not-null="true" />
+        </property>
+        <property name="link" type="string">
+            <column name="link" length="120" not-null="true" />
+        </property>
+        <set name="wijntbls" table="wijntbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wijnhuisId" not-null="true" />
+            </key>
+            <one-to-many class="DAL.Wijntbl" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListWijnhuistblTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListWijnhuistblEmpty}" rendered="#{wijnhuistblController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{wijnhuistblController.items.rowCount > 0}">
+                    <h:outputText value="#{wijnhuistblController.pagination.pageFirstItem + 1}..#{wijnhuistblController.pagination.pageLastItem + 1}/#{wijnhuistblController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{wijnhuistblController.previous}" value="#{bundle.Previous} #{wijnhuistblController.pagination.pageSize}" rendered="#{wijnhuistblController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{wijnhuistblController.next}" value="#{bundle.Next} #{wijnhuistblController.pagination.pageSize}" rendered="#{wijnhuistblController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{wijnhuistblController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_naam}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.naam}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_omschrijving}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.omschrijving}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_streek}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.streek}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_eigenaar}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eigenaar}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_link}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.link}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListWijnhuistblTitle_fotoId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fotoId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{wijnhuistblController.prepareView}" value="#{bundle.ListWijnhuistblViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{wijnhuistblController.prepareEdit}" value="#{bundle.ListWijnhuistblEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{wijnhuistblController.destroy}" value="#{bundle.ListWijnhuistblDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{wijnhuistblController.prepareCreate}" value="#{bundle.ListWijnhuistblCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListWijnhuistblIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

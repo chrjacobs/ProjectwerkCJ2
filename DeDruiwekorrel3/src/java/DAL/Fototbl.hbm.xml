@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19-jan-2015 21:20:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="DAL.Fototbl" table="fototbl" catalog="dedruiwekorrelnew" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="naam" type="string">
+            <column name="naam" length="100" not-null="true" />
+        </property>
+        <property name="filenaam" type="string">
+            <column name="filenaam" length="60" not-null="true" />
+        </property>
+        <set name="wijnhuistbls" table="wijnhuistbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fotoId" not-null="true" />
+            </key>
+            <one-to-many class="DAL.Wijnhuistbl" />
+        </set>
+        <set name="wijntbls" table="wijntbl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="fotoId" not-null="true" />
+            </key>
+            <one-to-many class="DAL.Wijntbl" />
+        </set>
+    </class>
+</hibernate-mapping>

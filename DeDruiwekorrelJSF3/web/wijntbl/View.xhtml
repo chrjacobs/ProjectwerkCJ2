@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewWijntblTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewWijntblLabel_naam}"/>
+                    <h:outputText value="#{wijntblController.selected.naam}" title="#{bundle.ViewWijntblTitle_naam}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_platter}"/>
+                    <h:outputText value="#{wijntblController.selected.platter}" title="#{bundle.ViewWijntblTitle_platter}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_jaar}"/>
+                    <h:outputText value="#{wijntblController.selected.jaar}" title="#{bundle.ViewWijntblTitle_jaar}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_prijsKarton}"/>
+                    <h:outputText value="#{wijntblController.selected.prijsKarton}" title="#{bundle.ViewWijntblTitle_prijsKarton}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_aantalKarton}"/>
+                    <h:outputText value="#{wijntblController.selected.aantalKarton}" title="#{bundle.ViewWijntblTitle_aantalKarton}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_prijs}"/>
+                    <h:outputText value="#{wijntblController.selected.prijs}" title="#{bundle.ViewWijntblTitle_prijs}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_volume}"/>
+                    <h:outputText value="#{wijntblController.selected.volume}" title="#{bundle.ViewWijntblTitle_volume}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_omschrijving}"/>
+                    <h:outputText value="#{wijntblController.selected.omschrijving}" title="#{bundle.ViewWijntblTitle_omschrijving}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_flags}"/>
+                    <h:outputText value="#{wijntblController.selected.flags}" title="#{bundle.ViewWijntblTitle_flags}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_id}"/>
+                    <h:outputText value="#{wijntblController.selected.id}" title="#{bundle.ViewWijntblTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_fotoId}"/>
+                    <h:outputText value="#{wijntblController.selected.fotoId}" title="#{bundle.ViewWijntblTitle_fotoId}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_wijnhuisId}"/>
+                    <h:outputText value="#{wijntblController.selected.wijnhuisId}" title="#{bundle.ViewWijntblTitle_wijnhuisId}"/>
+                    <h:outputText value="#{bundle.ViewWijntblLabel_wijntypeId}"/>
+                    <h:outputText value="#{wijntblController.selected.wijntypeId}" title="#{bundle.ViewWijntblTitle_wijntypeId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wijntblController.destroyAndView}" value="#{bundle.ViewWijntblDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewWijntblEditLink}"/>
+                <br />
+                <h:commandLink action="#{wijntblController.prepareCreate}" value="#{bundle.ViewWijntblCreateLink}" />
+                <br />
+                <h:commandLink action="#{wijntblController.prepareList}" value="#{bundle.ViewWijntblShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewWijntblIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

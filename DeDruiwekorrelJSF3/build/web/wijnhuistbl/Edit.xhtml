@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditWijnhuistblTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_naam}" for="naam" />
+                    <h:inputText id="naam" value="#{wijnhuistblController.selected.naam}" title="#{bundle.EditWijnhuistblTitle_naam}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_naam}"/>
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_omschrijving}" for="omschrijving" />
+                    <h:inputTextarea rows="4" cols="30" id="omschrijving" value="#{wijnhuistblController.selected.omschrijving}" title="#{bundle.EditWijnhuistblTitle_omschrijving}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_omschrijving}"/>
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_streek}" for="streek" />
+                    <h:inputText id="streek" value="#{wijnhuistblController.selected.streek}" title="#{bundle.EditWijnhuistblTitle_streek}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_streek}"/>
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_eigenaar}" for="eigenaar" />
+                    <h:inputText id="eigenaar" value="#{wijnhuistblController.selected.eigenaar}" title="#{bundle.EditWijnhuistblTitle_eigenaar}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_eigenaar}"/>
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_link}" for="link" />
+                    <h:inputText id="link" value="#{wijnhuistblController.selected.link}" title="#{bundle.EditWijnhuistblTitle_link}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_link}"/>
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{wijnhuistblController.selected.id}" title="#{bundle.EditWijnhuistblTitle_id}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditWijnhuistblLabel_fotoId}" for="fotoId" />
+                    <h:selectOneMenu id="fotoId" value="#{wijnhuistblController.selected.fotoId}" title="#{bundle.EditWijnhuistblTitle_fotoId}" required="true" requiredMessage="#{bundle.EditWijnhuistblRequiredMessage_fotoId}">
+                        <f:selectItems value="#{fototblController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{wijnhuistblController.update}" value="#{bundle.EditWijnhuistblSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditWijnhuistblViewLink}"/>
+                <br />
+                <h:commandLink action="#{wijnhuistblController.prepareList}" value="#{bundle.EditWijnhuistblShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditWijnhuistblIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

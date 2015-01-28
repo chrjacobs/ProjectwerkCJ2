@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFototblTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFototblLabel_naam}"/>
+                    <h:outputText value="#{fototblController.selected.naam}" title="#{bundle.ViewFototblTitle_naam}"/>
+                    <h:outputText value="#{bundle.ViewFototblLabel_filenaam}"/>
+                    <h:outputText value="#{fototblController.selected.filenaam}" title="#{bundle.ViewFototblTitle_filenaam}"/>
+                    <h:outputText value="#{bundle.ViewFototblLabel_id}"/>
+                    <h:outputText value="#{fototblController.selected.id}" title="#{bundle.ViewFototblTitle_id}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{fototblController.destroyAndView}" value="#{bundle.ViewFototblDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFototblEditLink}"/>
+                <br />
+                <h:commandLink action="#{fototblController.prepareCreate}" value="#{bundle.ViewFototblCreateLink}" />
+                <br />
+                <h:commandLink action="#{fototblController.prepareList}" value="#{bundle.ViewFototblShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFototblIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

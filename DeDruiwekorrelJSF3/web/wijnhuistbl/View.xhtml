@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewWijnhuistblTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_naam}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.naam}" title="#{bundle.ViewWijnhuistblTitle_naam}"/>
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_omschrijving}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.omschrijving}" title="#{bundle.ViewWijnhuistblTitle_omschrijving}"/>
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_streek}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.streek}" title="#{bundle.ViewWijnhuistblTitle_streek}"/>
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_eigenaar}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.eigenaar}" title="#{bundle.ViewWijnhuistblTitle_eigenaar}"/>
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_link}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.link}" title="#{bundle.ViewWijnhuistblTitle_link}"/>
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_id}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.id}" title="#{bundle.ViewWijnhuistblTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewWijnhuistblLabel_fotoId}"/>
+                    <h:outputText value="#{wijnhuistblController.selected.fotoId}" title="#{bundle.ViewWijnhuistblTitle_fotoId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wijnhuistblController.destroyAndView}" value="#{bundle.ViewWijnhuistblDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewWijnhuistblEditLink}"/>
+                <br />
+                <h:commandLink action="#{wijnhuistblController.prepareCreate}" value="#{bundle.ViewWijnhuistblCreateLink}" />
+                <br />
+                <h:commandLink action="#{wijnhuistblController.prepareList}" value="#{bundle.ViewWijnhuistblShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewWijnhuistblIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

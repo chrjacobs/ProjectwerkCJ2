@@ -1,0 +1,31 @@
+SMAP
+lijstWijntypes_jsp.java
+JSP
+*S JSP
+*F
++ 0 lijstWijntypes.jsp
+lijstWijntypes.jsp
++ 1 header1.jsp
+header1.jsp
++ 2 header2.jsp
+header2.jsp
++ 3 footer.jsp
+footer.jsp
+*L
+5,9:53
+13,7:62
+5#1,23:69
+19#0,5:91
+5#2,19:96
+23#0,14:115
+36,2:129
+37,3:131
+40,2:134,3
+42,3:140
+45:143,3
+46,5:146
+51:151,3
+52,4:154
+5#3,14:158
+55#0,4:171
+*E

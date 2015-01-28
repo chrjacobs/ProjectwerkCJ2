@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateWijntblTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_naam}" for="naam" />
+                    <h:inputText id="naam" value="#{wijntblController.selected.naam}" title="#{bundle.CreateWijntblTitle_naam}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_naam}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_platter}" for="platter" />
+                    <h:inputText id="platter" value="#{wijntblController.selected.platter}" title="#{bundle.CreateWijntblTitle_platter}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_platter}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_jaar}" for="jaar" />
+                    <h:inputText id="jaar" value="#{wijntblController.selected.jaar}" title="#{bundle.CreateWijntblTitle_jaar}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_jaar}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_prijsKarton}" for="prijsKarton" />
+                    <h:inputText id="prijsKarton" value="#{wijntblController.selected.prijsKarton}" title="#{bundle.CreateWijntblTitle_prijsKarton}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_prijsKarton}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_aantalKarton}" for="aantalKarton" />
+                    <h:inputText id="aantalKarton" value="#{wijntblController.selected.aantalKarton}" title="#{bundle.CreateWijntblTitle_aantalKarton}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_aantalKarton}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_prijs}" for="prijs" />
+                    <h:inputText id="prijs" value="#{wijntblController.selected.prijs}" title="#{bundle.CreateWijntblTitle_prijs}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_prijs}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_volume}" for="volume" />
+                    <h:inputText id="volume" value="#{wijntblController.selected.volume}" title="#{bundle.CreateWijntblTitle_volume}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_volume}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_omschrijving}" for="omschrijving" />
+                    <h:inputTextarea rows="4" cols="30" id="omschrijving" value="#{wijntblController.selected.omschrijving}" title="#{bundle.CreateWijntblTitle_omschrijving}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_omschrijving}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_flags}" for="flags" />
+                    <h:inputText id="flags" value="#{wijntblController.selected.flags}" title="#{bundle.CreateWijntblTitle_flags}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_flags}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{wijntblController.selected.id}" title="#{bundle.CreateWijntblTitle_id}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_fotoId}" for="fotoId" />
+                    <h:selectOneMenu id="fotoId" value="#{wijntblController.selected.fotoId}" title="#{bundle.CreateWijntblTitle_fotoId}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_fotoId}">
+                        <f:selectItems value="#{fototblController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_wijnhuisId}" for="wijnhuisId" />
+                    <h:selectOneMenu id="wijnhuisId" value="#{wijntblController.selected.wijnhuisId}" title="#{bundle.CreateWijntblTitle_wijnhuisId}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_wijnhuisId}">
+                        <f:selectItems value="#{wijnhuistblController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateWijntblLabel_wijntypeId}" for="wijntypeId" />
+                    <h:selectOneMenu id="wijntypeId" value="#{wijntblController.selected.wijntypeId}" title="#{bundle.CreateWijntblTitle_wijntypeId}" required="true" requiredMessage="#{bundle.CreateWijntblRequiredMessage_wijntypeId}">
+                        <f:selectItems value="#{wijntypetblController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{wijntblController.create}" value="#{bundle.CreateWijntblSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{wijntblController.prepareList}" value="#{bundle.CreateWijntblShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateWijntblIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
